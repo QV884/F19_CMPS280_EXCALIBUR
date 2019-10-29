@@ -47,11 +47,12 @@ import java.util.Scanner;
         System.out.println("Your Cart total is " + cart);
         }
      }
+     
      class Order{
         int shipAmt = 7;
         int total = cart + shipAmt;
         
         System.out.println("Your final total after shipping is " + total);
-        
+     }
 }
   
