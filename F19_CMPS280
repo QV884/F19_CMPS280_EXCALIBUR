@@ -3,15 +3,55 @@ import java.util.Scanner;
 
   public class PRJ280;
     public static void main(String args[]){
+    
+    System.out.println("Welcome to Excalibur!");
+        PRJ280 shirtPrice = new shirtPrice(20);
+        PRJ280 pantsPrice = new pantsPrice(30);
+        PRJ280 shoesPrice = new shoesPrice(40);
+    
+    class User{
      Scanner input = new Scanner(System.in);
      
-        String a = in.nextLine();
-        System.out.println("Your username is "+a);
+        System.out.println("Enter your First and Last name: ");
+        String userName = input.nextLine(); 
         
-        String b = in.nextLine();
-        System.out.println("Your password is "+b);
+        System.out.println("Enter your email address: ");
+        String emailAdd = input.nextLine();
         
-        String c = in.nextLine();
-        System.out.println("Your email address is "+c);
+        System.out.println("Enter your address: ");
+        String shipAdd = input.nextLine();
+        
+        System.out.println( "Your information is: " + userName + "," + emailAdd + "," + shipAdd);
+     }
+     
+    class Cart{
+        System.out.println("How many shirts do you want to purchase? ");
+        int shirt = input.nextLine();
+        int shirtTotal = shirt * shirtPrice;
+        
+        System.out.println("How many pants do you want to purchase? ");
+        int pants = input.nextLine();
+        int pantsTotal = pants * pantsPrice;
+        
+        System.out.println("How many shoes do you want to purchase? ");
+        int shoes = input.nextLine();
+        int shoesTotal = shoes * shoesPrice;
+       
+        int amount = shirt + pants + shoes;
+        int cart = shirtTotal + pantsTotal + shoesTotal;
+        
+        if(amount >= 10){
+          System.out.println("Error: Maximum cart amount (10) was exceeded.");
+        }
+        else{
+        System.out.println("Your Cart total is " + cart);
+        }
+     }
+     class Order{
+        int shipAmt = 7;
+        int total = cart + shipAmt;
+        
+        System.out.println("Your final total after shipping is " + total);
+        
 }
   
