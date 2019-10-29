@@ -1,1 +1,17 @@
+package CMPS280;
+import java.util.Scanner;
 
+  public class PRJ280;
+    public static void main(String args[]){
+     Scanner input = new Scanner(System.in);
+     
+        String a = in.nextLine();
+        System.out.println("Your username is "+a);
+        
+        String b = in.nextLine();
+        System.out.println("Your password is "+b);
+        
+        String c = in.nextLine();
+        System.out.println("Your email address is "+c);
+}
+  
