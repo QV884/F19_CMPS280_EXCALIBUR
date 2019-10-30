@@ -10,16 +10,20 @@
   
     public static class User{
     	public static void main(String[] args){
+    		
      Scanner userInfo = new Scanner(System.in);
      
-     	String userName = userInfo.nextLine();
-        System.out.println("Enter your first and last name: " + userName);
+     	
+        System.out.println("Enter your first and last name: ");
+        String userName = userInfo.nextLine();
         
+        
+        System.out.println("Enter your email address: ");
         String emailAdd = userInfo.nextLine();
-        System.out.println("Enter your email address: " + emailAdd);
         
-        String shipAdd = userInfo.nextLine();
-        System.out.println("Enter your address: " + shipAdd);
+        
+        System.out.println("Enter your address: ");
+        String shipAdd = userInfo.next();
         
         System.out.println( "Your information is: " + userName + "," + emailAdd + "," + shipAdd);
         
@@ -57,14 +61,15 @@
         }
         else{
         System.out.println("Your Cart total is $" + cart);
-        }
-   		 
-    	int shipAmt = 7;
+        
+        int shipAmt = 7;
         int total = cart+ shipAmt;
         
         System.out.println("The shipping cost is $" + shipAmt);
         System.out.println("Your final total after shipping is $" + total);
         
+        }
+   		
         itemNum.close();
     	 
     	}
