@@ -3,13 +3,13 @@
   import java.util.Scanner;
   
   public class pa1{
-    public void main(String args[]){
+    public static void main(String[] args){
     
     System.out.println("Welcome to Excalibur!");   
     }
   
-    class User{
-    	public void main(String args[]){
+    public static class User{
+    	public static void main(String[] args){
      Scanner userInfo = new Scanner(System.in);
      
      	String userName = userInfo.nextLine();
@@ -22,11 +22,14 @@
         System.out.println("Enter your address: " + shipAdd);
         
         System.out.println( "Your information is: " + userName + "," + emailAdd + "," + shipAdd);
+        
+        userInfo.close();
     	}
+    	
      }
      
-    class Cart{
-    	public void main(String args[]){
+    public static class Cart{
+    	public static void main(String[] args) {
     		
     	int shirtPrice = 20;
         int pantsPrice = 30;
@@ -55,20 +58,17 @@
         else{
         System.out.println("Your Cart total is $" + cart);
         }
+   		 
+    	int shipAmt = 7;
+        int total = cart+ shipAmt;
         
-    	}
-     }
-     
-     class Order{
-    	 public void main(String args[]) {
-    		 
-        int shipAmt = 7;
-        int total =  get.cart+ shipAmt;
-        
-        System.out.print("The shipping cost is $" + shipAmt);
+        System.out.println("The shipping cost is $" + shipAmt);
         System.out.println("Your final total after shipping is $" + total);
-    	 }
-     }
-
+        
+        itemNum.close();
+    	 
+    	}
+    }
+    
 }
   
