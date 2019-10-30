@@ -45,7 +45,7 @@ import java.util.Scanner;
           System.out.println("Error: Maximum cart amount (10) was exceeded.");
         }
         else{
-        System.out.println("Your Cart total is " + cart);
+        System.out.println("Your Cart total is $" + cart);
         }
      }
      
@@ -53,7 +53,8 @@ import java.util.Scanner;
         int shipAmt = 7;
         int total = cart + shipAmt;
         
-        System.out.println("Your final total after shipping is " + total);
+        System.out.println("Your final total after shipping is $" + total);
      }
+input.close();
 }
   
