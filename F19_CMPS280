@@ -1,39 +1,49 @@
 
-  public class PRJ280{
-    public static void main(String args[]){
+  package CMPS280;
+  import java.util.Scanner;
+  
+  public class pa1{
+    public void main(String args[]){
     
-    System.out.println("Welcome to Excalibur!");
-        PRJ280 shirtPrice = new shirtPrice(20);
-        PRJ280 pantsPrice = new pantsPrice(30);
-        PRJ280 shoesPrice = new shoesPrice(40);
+    System.out.println("Welcome to Excalibur!");   
     }
   
     class User{
-     Scanner input = new Scanner(System.in);
+    	public void main(String args[]){
+     Scanner userInfo = new Scanner(System.in);
      
-        System.out.println("Enter your First and Last name: ");
-        String userName = input.nextLine(); 
+     	String userName = userInfo.nextLine();
+        System.out.println("Enter your first and last name: " + userName);
         
-        System.out.println("Enter your email address: ");
-        String emailAdd = input.nextLine();
+        String emailAdd = userInfo.nextLine();
+        System.out.println("Enter your email address: " + emailAdd);
         
-        System.out.println("Enter your address: ");
-        String shipAdd = input.nextLine();
+        String shipAdd = userInfo.nextLine();
+        System.out.println("Enter your address: " + shipAdd);
         
         System.out.println( "Your information is: " + userName + "," + emailAdd + "," + shipAdd);
+    	}
      }
      
     class Cart{
+    	public void main(String args[]){
+    		
+    	int shirtPrice = 20;
+        int pantsPrice = 30;
+        int shoesPrice = 40;
+        
+    	Scanner itemNum = new Scanner(System.in);
+    	
         System.out.println("How many shirts do you want to purchase? ");
-        int shirt = input.nextInt();
+        int shirt = itemNum.nextInt();
         int shirtTotal = shirt * shirtPrice;
         
         System.out.println("How many pants do you want to purchase? ");
-        int pants = input.nextInt();
+        int pants = itemNum.nextInt();
         int pantsTotal = pants * pantsPrice;
         
         System.out.println("How many shoes do you want to purchase? ");
-        int shoes = input.nextInt();
+        int shoes = itemNum.nextInt();
         int shoesTotal = shoes * shoesPrice;
        
         int amount = shirt + pants + shoes;
@@ -45,14 +55,20 @@
         else{
         System.out.println("Your Cart total is $" + cart);
         }
+        
+    	}
      }
      
      class Order{
+    	 public void main(String args[]) {
+    		 
         int shipAmt = 7;
-        int total = cart + shipAmt;
+        int total =  get.cart+ shipAmt;
         
+        System.out.print("The shipping cost is $" + shipAmt);
         System.out.println("Your final total after shipping is $" + total);
+    	 }
      }
-input.close();
+
 }
   
