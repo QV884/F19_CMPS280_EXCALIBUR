@@ -1,5 +1,3 @@
-package CMPS280;
-import java.util.Scanner;
 
   public class PRJ280{
     public static void main(String args[]){
