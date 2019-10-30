@@ -1,14 +1,15 @@
 package CMPS280;
 import java.util.Scanner;
 
-  public class PRJ280;
+  public class PRJ280{
     public static void main(String args[]){
     
     System.out.println("Welcome to Excalibur!");
         PRJ280 shirtPrice = new shirtPrice(20);
         PRJ280 pantsPrice = new pantsPrice(30);
         PRJ280 shoesPrice = new shoesPrice(40);
-    
+    }
+  
     class User{
      Scanner input = new Scanner(System.in);
      
@@ -26,15 +27,15 @@ import java.util.Scanner;
      
     class Cart{
         System.out.println("How many shirts do you want to purchase? ");
-        int shirt = input.nextLine();
+        int shirt = input.nextInt();
         int shirtTotal = shirt * shirtPrice;
         
         System.out.println("How many pants do you want to purchase? ");
-        int pants = input.nextLine();
+        int pants = input.nextInt();
         int pantsTotal = pants * pantsPrice;
         
         System.out.println("How many shoes do you want to purchase? ");
-        int shoes = input.nextLine();
+        int shoes = input.nextInt();
         int shoesTotal = shoes * shoesPrice;
        
         int amount = shirt + pants + shoes;
