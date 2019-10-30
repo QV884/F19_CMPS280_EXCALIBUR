@@ -23,7 +23,7 @@
         
         
         System.out.println("Enter your address: ");
-        String shipAdd = userInfo.next();
+        String shipAdd = userInfo.nextLine();
         
         System.out.println( "Your information is: " + userName + "," + emailAdd + "," + shipAdd);
         
