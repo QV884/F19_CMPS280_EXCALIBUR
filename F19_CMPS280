@@ -23,6 +23,23 @@
         
         System.out.println( "Your information is: " + userName + "," + emailAdd + "," + shipAdd);
         
+	String[] info = new String[3];
+	info [0][0] = userName;
+	info [0][1] = emailAdd;
+	info [0][2] = shipAdd;
+	
+        System.out.println ("Is your information correct? Type 'Yes' or 'No' ");
+        String a = userInfo.nextLine();
+	
+        if (a.equals("Yes")) {
+            System.out.println ("Thank you for registering with Excalibur.");
+        }
+        else {
+            System.out.println ("Please restart.");
+        }
+    } 
+}
+        
         userInfo.close();
     	}
     }
@@ -30,15 +47,14 @@
     public abstract class Item{
     	
     	String[] shirt = {"Lavender Chiffon Top","Sweatshirt", "Grey Crop Top"};
-    	
-		String[] pants = {"Sweatpants","High-Waisted Jeans", "Shorts"};
-		
-		String[] shoes = {"Black Converse", "Brown Sandals", "Olive Green Wedges"};
+	String[] pants = {"Sweatpants","High-Waisted Jeans", "Shorts"};
+	String[] shoes = {"Black Converse", "Brown Sandals", "Olive Green Wedges"};
+	
+	System.out.println("We have many items available for purchase." + shirt + pants + shoes);
 		
     	Scanner itemNum = new Scanner(System.in);
-    
     	System.out.println(shirt);
-    	System.out.println("How many shirts do you want to purchase?");
+    	System.out.println("How many shirts would you like to purchase you want to purchase?");
         int numShirt = itemNum.nextInt();
         
         System.out.println(pants);
@@ -48,40 +64,16 @@
         System.out.println(shoes);
         System.out.println("How many pair of shoes do you want to purchase?");
         int numShoes = itemNum.nextInt();
+	
+	int totalSale = numShirt + numPants + numShoes;
+	
+	 if (totalSale.equals(9)) {
+            System.out.println ("Thank you for registering with Excalibur.");
+        }
+        else {
+            System.out.println ("Please restart and enter your information again.");
+        }
         
-        int cartMax = 9;
-        
-        int numTotal = numShirt + numPants + numShoes;
-        
-        for (cartMax = 9; numTotal <= cartMax; numTotal--) {
-        	if (numShirt <= 3) {
-        		int shirtTotal = numShirt*30; 
-        	}
-        	if (numPants <= 3) {
-        		int pantsTotal = numPants*40; 
-        	}
-        	if (numShoes <= 3) {
-        		int shoesTotal = numShoes*45;
-        	}
-        	else {
-        		System.out.println("Error: Maximum cart amount (3) was exceeded.");
-        	}
-        	
-        	}
         itemNum.close(); 
     	}
     }
-    
-    public class Exception {
-
-    		 try {
-    			 int belt[] = new int[3];
-    	         System.out.println("Access element four :" + belt[4]);
-    	      } catch (ArrayIndexOutOfBoundsException e) {
-    	         System.out.println("Exception thrown  :" + e);
-    	      }
-    	      System.out.println("Out of the block");
-    	   }
-    	}
-
-  }
