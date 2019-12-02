@@ -1,14 +1,13 @@
 	package CMPS280;
 	import java.util.Scanner;
   
-  public class pa1{
+  public class excalibur{
     public static void main(String[] args){
     
     System.out.println("Welcome to Excalibur!");   
     }
   
     public class User{
-    	public void main(String[] args){
     	Scanner userInfo = new Scanner(System.in);
      	
         System.out.println("Enter your first and last name: ");
@@ -29,7 +28,6 @@
     }
 
     public abstract class Item{
-    	public void main(String[] args){
     	
     	String[] shirt = {"Lavender Chiffon Top","Sweatshirt", "Grey Crop Top"};
     	
@@ -75,7 +73,7 @@
     }
     
     public class Exception {
-    	public void main(String args[]) {
+
     		 try {
     			 int belt[] = new int[3];
     	         System.out.println("Access element four :" + belt[4]);
