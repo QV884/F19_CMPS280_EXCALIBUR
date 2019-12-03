@@ -1,8 +1,5 @@
 	package CMPS280;
 	import java.util.Scanner;
-	import java.util.*;
-  
-  
     
     public class excalibur {
     	
@@ -11,7 +8,7 @@
     
     System.out.println("Welcome to Excalibur!");
     
-		Scanner userInfo = new Scanner(System.in);
+    Scanner userInfo = new Scanner(System.in);
      	
         System.out.println("Enter your first and last name: ");
         String userName = userInfo.nextLine();
@@ -24,62 +21,84 @@
         System.out.println("Enter your address: ");
         String shipAdd = userInfo.nextLine();
         
-        System.out.println( "Your information is: " + userName + "," + emailAdd + "," + shipAdd);	
-		
-        void getType() {
-        System.out.println(shirt);
-    	System.out.println("What kind of shirt would you like to purchase?");
-        int numShirt = itemNum.nextInt();
-        }
+        System.out.println( "Your information is: " + userName + "," + emailAdd + "," + shipAdd);
         
-        System.out.println(pants);
-        System.out.println("What kind of pants would you like to purchase?");
-        int numPants = itemNum.nextInt();
-        
-        System.out.println(shoes);
-        System.out.println("What kind of shoes would you like to purchase?");
-        int numShoes = itemNum.nextInt();
+        userInfo.close();
+   
+    }
     
-        
     interface shirts{
     	String[] shirt = {"Lavender Chiffon Top","Sweatshirt", "Grey Crop Top"};
-    	public void getType();
-    	public void getPrice();	
+    	public void getShirtType();
+    	public int shirtPrice = 30;	
     }
     
     interface pants{
     	String[] pants = {"Sweatpants","High-Waisted Jeans", "Shorts"};
-    	public void getType();
-    	public void getPrice();	
+    	public void getPantsType();
+    	public int pantsPrice = 35;	
     }
     
     interface shoes{
     	String[] shoes = {"Black Converse", "Brown Sandals", "Olive Green Wedges"};
-    	public void getType();
-    	public void getPrice();
+    	public void getShoesType();
+    	public int shoesPrice = 40;
     }
-
-    public abstract class Items{
-    	public abstract void getTotal();
-    	public int shipping;
-    	public int totalWithShipping; 
+    
+    public class Sales implements shirts, pants, shoes {
+    	
+    	 
+    	public void getShirtType() {	 
+        System.out.println(shirt);
+        	}
  
-    }
+    	public void getPantsType(){	
+        System.out.println(pants);
+    		}
+    
+    	public void getShoesType() {	
+        System.out.println(shoes);
+    		}
     	
+        public void main(String[] args){
+    	System.out.println("What kind of shirt would you like to purchase?");
+    	Scanner shirtChose = new Scanner(System.in);
+    		shirtChose.close();
+    		
+    	System.out.println("What kind of pants would you like to purchase?");
+        Scanner pantsChose = new Scanner(System.in);
+   		 	pantsChose.close();	
+   		 	
+    	System.out.println("What kind of shoes would you like to purchase?");
+        Scanner shoesChose = new Scanner(System.in);
+        	shoesChose.close();	
+        	}
+
+    	int totalPrice = shirtPrice + pantsPrice + shoesPrice;
     	
+    	}
+
+    public abstract class Items extends Sales{
+    	public int shipping;
+    	public int finalTotal;
+    
+    public Items(int shipping, int finalTotal) {
+    	this.shipping = 7;
+    	this.finalTotal = shipping + totalPrice;
+    	}
     	
-		
+    }	
+
     public class MyException {
     	public void main(String args[]) {
     		 try {
-    			 int belt[] = new int[3];
-    	         System.out.println("Access element four :" + belt[4]);
-    	      } catch (ArrayIndexOutOfBoundsException e) {
-    	         System.out.println("Exception thrown  :" + e);
-    	      }
-    	      System.out.println("Out of the block");
-    	   }
+    			 String shirt = "Sweatpants";
+    			 char a = shirt.charAt(11);
+    	      	} 
+    		 catch (ArrayIndexOutOfBoundsException e) {
+    	         System.out.println("Please enter the exact name for the item!");
+    	      } 
+    		}
     	}
-
   }
-  }
+  
