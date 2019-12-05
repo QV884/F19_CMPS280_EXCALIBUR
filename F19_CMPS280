@@ -1,8 +1,9 @@
-	package CMPS280;
+	package CMPS280;	
+	import java.util.ArrayList;
+	import java.util.Arrays;
 	import java.util.Scanner;
     
     public class excalibur {
-    	
     	
     public static void main(String[] args){
     
@@ -10,85 +11,29 @@
     
     Scanner userInfo = new Scanner(System.in);
      	
-        System.out.println("Enter your first and last name: ");
+        System.out.println("\nEnter your first and last name: ");
         String userName = userInfo.nextLine();
         
         
-        System.out.println("Enter your email address: ");
+        System.out.println("\nEnter your email address: ");
         String emailAdd = userInfo.nextLine();
         
         
-        System.out.println("Enter your address: ");
+        System.out.println("\nEnter your address: ");
         String shipAdd = userInfo.nextLine();
         
-        System.out.println( "Your information is: " + userName + "," + emailAdd + "," + shipAdd);
+        System.out.println( "\nYour information is: " + userName + "," + emailAdd + "," + shipAdd);
         
         userInfo.close();
-   
+        
+        Sales.buyItems();
+        Sales newSales = new Sales();
+        newSales.getShirtChose();
+        newSales.getPantsChose();
+        newSales.getShoesChose();
+    
     }
     
-    interface shirts{
-    	String[] shirt = {"Lavender Chiffon Top","Sweatshirt", "Grey Crop Top"};
-    	public void getShirtType();
-    	public int shirtPrice = 30;	
-    }
-    
-    interface pants{
-    	String[] pants = {"Sweatpants","High-Waisted Jeans", "Shorts"};
-    	public void getPantsType();
-    	public int pantsPrice = 35;	
-    }
-    
-    interface shoes{
-    	String[] shoes = {"Black Converse", "Brown Sandals", "Olive Green Wedges"};
-    	public void getShoesType();
-    	public int shoesPrice = 40;
-    }
-    
-    public class Sales implements shirts, pants, shoes {
-    	
-    	 
-    	public void getShirtType() {	 
-        System.out.println(shirt);
-        	}
- 
-    	public void getPantsType(){	
-        System.out.println(pants);
-    		}
-    
-    	public void getShoesType() {	
-        System.out.println(shoes);
-    		}
-    	
-        public void main(String[] args){
-    	System.out.println("What kind of shirt would you like to purchase?");
-    	Scanner shirtChose = new Scanner(System.in);
-    		shirtChose.close();
-    		
-    	System.out.println("What kind of pants would you like to purchase?");
-        Scanner pantsChose = new Scanner(System.in);
-   		 	pantsChose.close();	
-   		 	
-    	System.out.println("What kind of shoes would you like to purchase?");
-        Scanner shoesChose = new Scanner(System.in);
-        	shoesChose.close();	
-        	}
-
-    	int totalPrice = shirtPrice + pantsPrice + shoesPrice;
-    	
-    	}
-
-    public abstract class Items extends Sales{
-    	public int shipping;
-    	public int finalTotal;
-    
-    public Items(int shipping, int finalTotal) {
-    	this.shipping = 7;
-    	this.finalTotal = shipping + totalPrice;
-    	}
-    	
-    }	
-
     public class MyException {
     	public void main(String args[]) {
     		 try {
@@ -96,9 +41,111 @@
     			 char a = shirt.charAt(11);
     	      	} 
     		 catch (ArrayIndexOutOfBoundsException e) {
-    	         System.out.println("Please enter the exact name for the item!");
+    	         System.out.println("\nPlease enter the exact name for the item!");
     	      } 
     		}
     	}
   }
-  
+    
+    interface shirts{
+		ArrayList<String> shirt = new ArrayList<String>(Arrays.asList("Lavender Chiffon Top","Sweatshirt", "Grey Crop Top"));
+    	public static void getShirtType() {
+		}
+    	public int shirtPrice = 30;	
+    	}
+    
+    interface pants{
+    	ArrayList<String> pants = new ArrayList<String>(Arrays.asList("Sweatpants","High-Waisted Jeans", "Shorts"));
+    	public static void getPantsType() {
+		}
+    	public int pantsPrice = 35;	
+    }
+    
+    interface shoes{
+    	ArrayList<String> shoes = new ArrayList<String>(Arrays.asList("Black Converse", "Brown Sandals", "Olive Green Wedges"));
+    	public static void getShoesType() {
+		}
+    	public int shoesPrice = 40;
+    }
+    
+     class Sales implements shirts, pants, shoes {
+    	
+    	static String shirtChose;
+    	static String pantsChose;
+    	static String shoesChose;
+    	
+    	 
+    	public static void getShirtType() {	 
+        System.out.println(shirt);
+        	}
+ 
+    	public static void getPantsType(){	
+        System.out.println(pants);
+    		}
+    
+    	public static void getShoesType() {	
+        System.out.println(shoes);
+    		}
+    	
+    	public void setShirtChose(String shirtChose) {
+    		Sales.shirtChose = shirtChose;
+    	}
+    	
+    	public String getShirtChose() {
+    		return Sales.shirtChose;
+    	}
+    	
+    	public void setpantsChose(String pantsChose) {
+    		Sales.pantsChose = pantsChose;
+    	}
+    	
+    	public String getPantsChose() {
+    		return Sales.pantsChose;
+    	}
+    	
+    	public void setShoesChose(String shoesChose) {
+    		Sales.shoesChose = shoesChose;
+    	}
+    	
+    	public String getShoesChose() {
+    		return Sales.shoesChose;
+    	}
+    	
+        public static void buyItems(){
+        	
+        Scanner itemsChose = new Scanner(System.in);
+       
+    	System.out.println("\nWhat kind of shirt would you like to purchase?");
+    	getShirtType();
+    	shirtChose = itemsChose.nextLine();
+    	System.out.println("\nYou chose: " + shirtChose );
+    	
+    	System.out.println("\nWhat kind of pants would you like to purchase?");
+    	getPantsType();
+    	pantsChose = itemsChose.nextLine();
+    	       
+    	
+    	System.out.println("\nWhat kind of shoes would you like to purchase?");
+    	getShoesType();
+    	shoesChose = itemsChose.nextLine();
+    	
+    	itemsChose.close();
+       
+        	}
+        
+    	int totalPrice = shirtPrice + pantsPrice + shoesPrice;
+    	
+    	}
+
+    abstract class Items extends Sales{
+    	public int shipping;
+    	public int finalTotal;
+    
+    public Items(int shipping, int finalTotal) {
+    	this.shipping = 7;
+    	this.finalTotal = shipping + totalPrice;
+    	System.out.println("Your final total is: " + finalTotal);
+    	System.out.println("Thank you for shopping with us!");
+    	}
+    	
+    }	
